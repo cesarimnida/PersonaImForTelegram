@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PersonaIM</string>
+    <string name="tv_empty_chats">PersonaIM</string>
+    <string name="activity_phone_number">PhoneNumberActivity</string>
+    <string name="activity_authcode">AuthCodeActivity</string>
+    <string name="activity_message">MessageActivity</string>
+    <string name="activity_chats">ChatsActivity</string>
+    <string name="activity_password">PasswordActivity</string>
+</resources>

@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.cattledog.im"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode versionMajor * 1000000 + versionMinor * 1000 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "Integer", "APP_ID", PIM_APP_ID
+        buildConfigField "String", "APP_HASH", PIM_APP_HASH
+        buildConfigField "String", "HOCKEY_APP_HASH", PIM_HOCKEY_APP_HASH
+        buildConfigField "String", "GCM_SENDER_ID", PIM_GCM_SENDER_ID
+        buildConfigField "String", "SEND_LOGS_EMAIL", PIM_SEND_LOGS_EMAIL
+        buildConfigField "String", "BING_SEARCH_KEY", PIM_BING_SEARCH_KEY
+        buildConfigField "String", "FOURSQUARE_API_KEY", PIM_FOURSQUARE_API_KEY
+        buildConfigField "String", "FOURSQUARE_API_ID", PIM_FOURSQUARE_API_ID
+        buildConfigField "String", "FOURSQUARE_API_VERSION", PIM_FOURSQUARE_API_VERSION
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    final LIFECYCLE_VERSION = '1.1.1'
+    final CONSTRAINT_LAYOUT_VERSION = '1.1.3'
+    final SUPPORT_LIB_VERSION = '28.0.0'
+    final TIMBER_VERSION = '4.7.1'
+    final ION_VERSION = '2.2.1'
+    final ESPRESSO_VERSION = '3.0.2'
+    final RUNNER_VERSION = '1.0.2'
+    final ESPRESSO_WEB_VERSION = '3.0.2'
+    def jUnit = "junit:junit:4.12"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation jUnit
+    androidTestImplementation jUnit
+    implementation "com.android.support:support-annotations:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support:support-core-utils:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION"
+    implementation "com.android.support:support-v4:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:design:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:cardview-v7:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:recyclerview-v7:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:palette-v7:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:customtabs:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:gridlayout-v7:${SUPPORT_LIB_VERSION}"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
+    androidTestImplementation "com.android.support.test:runner:$RUNNER_VERSION"
+    androidTestImplementation "com.android.support.test:rules:$RUNNER_VERSION"
+    androidTestImplementation "com.android.support.test.espresso:espresso-web:$ESPRESSO_WEB_VERSION"
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+
+
+    testImplementation "android.arch.core:core-testing:$LIFECYCLE_VERSION"
+    implementation "android.arch.lifecycle:common-java8:$LIFECYCLE_VERSION"
+    implementation "android.arch.lifecycle:extensions:$LIFECYCLE_VERSION"
+    implementation "android.arch.lifecycle:viewmodel:$LIFECYCLE_VERSION"
+    implementation "com.koushikdutta.ion:ion:$ION_VERSION"
+}
