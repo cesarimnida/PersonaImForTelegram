@@ -106,6 +106,7 @@ class MessageAdapter : RecyclerView.Adapter<MessageAdapter.UserViewHolder>() {
         notifyItemChanged(item.position)
     }
 
+    @Synchronized
     fun updateUsers(users: HashMap<Int, TdApi.User>) {
         this.users.clear()
         this.users.putAll(users)
