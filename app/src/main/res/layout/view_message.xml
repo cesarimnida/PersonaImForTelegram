@@ -5,9 +5,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingStart="32dp"
-    android:paddingTop="32dp"
+    android:paddingTop="16dp"
     android:paddingEnd="32dp"
-    android:paddingBottom="32dp">
+    android:paddingBottom="16dp">
 
     <ImageView
         android:id="@+id/iv_message"
@@ -23,8 +23,8 @@
         android:id="@+id/tv_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:textColor="#FFF000"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

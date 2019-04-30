@@ -19,6 +19,13 @@ import org.drinkless.td.libcore.telegram.TdApi
 class MessageView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     ConstraintLayout(context, attrs, defStyleAttr) {
     var position: Int = 0
+    var textColor: Int
+        get() {
+            return tv_message.textColors.defaultColor
+        }
+        set(value) {
+            tv_message.setTextColor(context.getColor(value))
+        }
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null, 0)

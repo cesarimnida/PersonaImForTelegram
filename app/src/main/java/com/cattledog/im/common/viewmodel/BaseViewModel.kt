@@ -99,6 +99,11 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
         return authStateRequest
     }
 
+    fun dpToPixels(dps: Int): Int {
+        val scale = resources.displayMetrics.density
+        return (dps * scale + 0.5f).toInt()
+    }
+
     companion object {
         fun defaultPhoto(): Int {
             return R.drawable.ic_add

@@ -50,11 +50,15 @@ class MessageAdapter : RecyclerView.Adapter<MessageAdapter.UserViewHolder>() {
         holder.message.position = position
         holder.message.setMessage(message)
         //holder.message.setBackgroundColor(Color.WHITE)
+        val background = if (holder is ContactViewHolder) ContactBackground() else UserBackground()
+        background.intrinsicWidth = holder.message.width
+        background.intrinsicHeight = holder.message.height
+        background.intrinsicWidth = holder.message.width
+        background.intrinsicHeight = holder.message.height
+        holder.message.background = background
+        holder.message.background = background
+        holder.message.textColor = if (holder is ContactViewHolder) R.color.white else R.color.black
         if (holder is ContactViewHolder) {
-            val background = ContactBackground()
-            background.intrinsicWidth = holder.message.width
-            background.intrinsicHeight = holder.message.height
-            holder.message.background = background
             setUserPhoto(holder.photo, message.senderUserId)
         }
     }
